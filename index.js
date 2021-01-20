@@ -53,24 +53,21 @@ class Student extends User {
     return this._yearOfAdmiss;
   }
   getCourse() {
-    const whatAcourse = (new Date().getFullYear() - this._yearOfAdmiss);
 
     if (typeof this._yearOfAdmiss !== 'number') {
       throw new TypeError('Enter correctly year in digits')
     }
-    if (whatAcourse === 0) {
-      return console.log(`Student ${this.getFullName()} styduing on the ${whatAcourse + 1} course`)
-    }
-    if (whatAcourse <= 5) {
-      return console.log(`Student ${this.getFullName()} styduing on the ${whatAcourse} course`)
-    }
-    return console.log(`Student ${this.getFullName()} graduated or you entered the wrong year of admission`);
-  }
+    const whatAcourse = (new Date().getFullYear() - this._yearOfAdmiss) + 1;
 
+    whatAcourse <= 5 ?
+      console.log(`Student ${this.getFullName()} styduing on the ${whatAcourse} course`) :
+
+      console.log(`Student ${this.getFullName()} graduated or you entered the wrong year of admission`)
+  }
 };
 
-const student1 = new Student('Adam', 'Smith', 2015);
-const student2 = new Student('Mary', 'Christmas', 2017);
-const student3 = new Student('Dont', 'Doit', 2021);
-const student4 = new Student(21, 51, 2018);
-const student5 = new Student('Check', 'Year', 'jdkfj');
+      student1 = new Student('Adam', 'Smith', 2015);
+      student2 = new Student('Mary', 'Christmas', 2017);
+      student3 = new Student('Dont', 'Doit', 2021);
+      student4 = new Student(21, 51, 2018);
+      student5 = new Student('Check', 'Year', 'jdkfj');
